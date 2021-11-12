@@ -1,0 +1,35 @@
+.post-container {
+  margin-bottom: 10px;
+  padding: 0.5em;
+  border: solid 1px lightgray;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.file-title {
+  padding-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.file-date {
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+
+table,
+tr,
+td,
+th {
+  border: 1px solid #555;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 10px;
+  line-height: 24px;
+}
+
+th {
+  background-color: #d9d9d9;
+}

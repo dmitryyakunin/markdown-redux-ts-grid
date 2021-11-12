@@ -1,17 +1,19 @@
 import React from 'react';
-//import logo from './logo.svg';
-import { Counter } from './features/posts/Counter';
+import { HashRouter as Router, Route} from "react-router-dom";
+
 import './App.css';
+import Home from "./pages/Home";
+import ItDepartment from "./pages/ItDepartment";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/*<img src={logo} className="App-logo" alt="logo" />*/}
-        <Counter />
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/it" component={ItDepartment} />
+            </Router>
+        </div>
+    );
 }
 
 export default App;
