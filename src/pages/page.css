@@ -1,0 +1,77 @@
+.main {
+    display: grid;
+    grid-template-areas:
+    'header header'
+    'menu page-content'
+    'document document';
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: 5rem 1fr 3rem;
+}
+
+@media (max-width: 600px) {
+    .main {
+        grid-template-areas:
+      'header'
+      'page-content'
+      'menu'
+      'document';
+
+        grid-template-columns: 1fr;
+        grid-template-rows: 5rem auto 1fr
+    }
+}
+
+.header {
+    grid-area: header;
+    background: linear-gradient(45deg, black, transparent);
+    height: 2rem;
+    padding: 1rem;
+
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+}
+
+.article {
+    grid-area: page-content;
+}
+
+.aside {
+    grid-area: menu;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.document {
+    grid-area: document;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+}
+
+/*
+.main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1rem;
+}
+
+.left-side {
+  grid-column: 1 / span 2;
+}
+
+.content {
+  grid-column: 3 / span 12;
+}
+
+*/
