@@ -15,10 +15,10 @@ const Post:FC<{ index: number}> = ({index}) => {
 
     useEffect(() => {
         if (files.length === 0) {
-            dispatch(getFiles('news/news1.md'));
+            dispatch(getFiles('news/news1.md?cur_dir=""'));
         }
         if (files.length === 1) {
-            dispatch(getFiles('files/it_structure.md'));
+            dispatch(getFiles('files/it_structure.md?cur_dir=""'));
         }
         dispatch(setFile({name: '', content: ''}));
     }, [files.length, dispatch])

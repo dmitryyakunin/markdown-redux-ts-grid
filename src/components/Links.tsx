@@ -20,7 +20,7 @@ const Links: FC<{ folderName: string, title?: string }> = ({folderName, title}) 
                     curPosts.posts.map((post, i) => {
                         return (
                             <div key={i} className="links-group_content">
-                                <div onClick={() => dispatch(getFile(folderName + '/' + post.name))}>
+                                <div onClick={() => dispatch(getFile(folderName + '/' + post.name+'?cur_dir=home'))}>
                                     {post.content}
                                 </div>
                             </div>

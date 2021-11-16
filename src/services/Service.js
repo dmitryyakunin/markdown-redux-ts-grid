@@ -5,7 +5,9 @@ const getAll = () => {
 };
 
 const getDirectories = () => {
-  return http.get("diretory-list");
+  return http.get("directory-list");
+
+  //return {data:['home/home_achievements','home/home_doc']};
 };
 
 const getFile = (name) => {

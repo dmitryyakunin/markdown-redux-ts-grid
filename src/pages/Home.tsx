@@ -22,7 +22,8 @@ const Home: FC = () => {
 
     async function getCategorisFileList() {
         let directories = await dispatch(getDirectories());
-        if (directories.payload) {
+        if (directories) {
+//            for (let i = 0; i < directories.payload.data.length; i++) {
             for (let i = 0; i < directories.payload.data.length; i++) {
                 dispatch(getBriefly(directories.payload.data[i]));
             }

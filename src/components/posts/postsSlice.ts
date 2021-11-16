@@ -116,7 +116,7 @@ export const postsSlice = createSlice({
             })
             .addCase(getDirTitles.fulfilled, (state, action) => {
                 state.status = 'idle';
-                state.titles = action.payload.content.split(',');
+                state.titles = action.payload.content.split('\r\n');
             });
         builder
             .addCase(getDirectories.pending, (state) => {
