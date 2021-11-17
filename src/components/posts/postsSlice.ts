@@ -195,6 +195,7 @@ export const selectFiles = (state: RootState) => state.counter.files;
 export const selectPostList = (state: RootState) => state.counter.postList;
 export const selectConfig = (state: RootState) => state.counter.config;
 export const selectTitles = (state: RootState) => state.counter.titles;
+export const selectPages = (state: RootState) => state.counter.pages;
 
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.

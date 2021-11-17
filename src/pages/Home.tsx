@@ -6,8 +6,8 @@ import Links from "../components/Links";
 import {
     getBriefly,
     getDirectories,
-    getDirTitles,
-    selectConfig,
+    getDirTitles, getPages,
+    selectConfig, selectPages,
     selectTitles, setCurDir
 } from "../components/posts/postsSlice";
 import {useAppDispatch, useAppSelector} from "../app/hooks";
@@ -18,15 +18,25 @@ import Navbar from "../components/Navbar";
 
 const Home: FC = () => {
     const dispatch = useAppDispatch();
+    //let pages: string[] = useAppSelector(selectPages);
+    let pages: any;
     const config: string[] = useAppSelector(selectConfig);
     const titles: string[] = useAppSelector(selectTitles);
-    const cur_dir = 'home';
+    let cur_dir: string;
 
     useEffect(() => {
-        dispatch(setCurDir(cur_dir));
-        getCategorisFileList();
-        dispatch(getDirTitles(cur_dir));
+        getPageDir();
     }, [])
+
+    async function getPageDir() {
+        pages = await dispatch(getPages());
+        let page: string = pages.payload.content;
+        let dir: string[] = page.split('\r\n');
+        cur_dir = dir[0]; //.split(':');
+        await dispatch(setCurDir(cur_dir));
+        await getCategorisFileList();
+        await dispatch(getDirTitles(cur_dir));
+    }
 
     async function getCategorisFileList() {
         try {

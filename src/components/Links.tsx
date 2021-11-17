@@ -6,9 +6,8 @@ import "./components.css"
 const Links: FC<{ folderName: string, title?: string }> = ({folderName, title}) => {
     const dispatch = useAppDispatch();
     const postList: PostList[] = useAppSelector(selectPostList);
-    const cur_dir = useAppSelector(selectCurDir);
-
     let curPosts = postList.find(post => post.folderName === folderName)
+    const cur_dir = useAppSelector(selectCurDir);
 
     return (
         <div style={{fontSize: '16px', margin: '0.5em'}}>
