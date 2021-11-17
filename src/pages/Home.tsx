@@ -3,7 +3,13 @@ import React, {FC, useEffect} from "react"
 import Posts from "../components/posts/Posts";
 import Post from "../components/posts/Post";
 import Links from "../components/Links";
-import {getBriefly, getDirectories, getDirTitles, selectConfig, selectTitles} from "../components/posts/postsSlice";
+import {
+    getBriefly,
+    getDirectories,
+    getDirTitles,
+    selectConfig,
+    selectTitles, setCurDir
+} from "../components/posts/postsSlice";
 import {useAppDispatch, useAppSelector} from "../app/hooks";
 import {getTitle} from "../lib/getTitle";
 
@@ -14,19 +20,24 @@ const Home: FC = () => {
     const dispatch = useAppDispatch();
     const config: string[] = useAppSelector(selectConfig);
     const titles: string[] = useAppSelector(selectTitles);
+    const cur_dir = 'home';
 
     useEffect(() => {
+        dispatch(setCurDir(cur_dir));
         getCategorisFileList();
-        dispatch(getDirTitles());
+        dispatch(getDirTitles(cur_dir));
     }, [])
 
     async function getCategorisFileList() {
-        let directories = await dispatch(getDirectories());
-        if (directories) {
-//            for (let i = 0; i < directories.payload.data.length; i++) {
-            for (let i = 0; i < directories.payload.data.length; i++) {
-                dispatch(getBriefly(directories.payload.data[i]));
+        try {
+            let directories = await dispatch(getDirectories(cur_dir));
+            if (directories.type !== 'posts/getconfigfile/rejected') {
+                for (let i = 0; i < directories.payload.data.length; i++) {
+                    dispatch(getBriefly({folderName: directories.payload.data[i], cur_dir:cur_dir}));
+                }
             }
+        } catch (e) {
+            console.log(e.message);
         }
     }
 
@@ -39,8 +50,7 @@ const Home: FC = () => {
             <div className="aside">
                 {config.length > 0 &&
                   <div className="post-container">
-                      {config.filter(conf => conf.substr(0, 5) === 'home_')
-                          .map((conf, i) => {
+                      {config.map((conf, i) => {
                               return (
                                   <div key={i} className="post-card">
                                       <Links folderName={conf}

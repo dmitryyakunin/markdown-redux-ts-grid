@@ -16,7 +16,7 @@ const Posts:FC<{ index: number}> = ({index}) => {
 
     return (
         <div>
-            {file.content.length > 0 &&
+            {file && file.content.length > 0 &&
               <div className="post-container">
                 <div className="file-title"> {getMarkdownHeader(file.content).title} </div>
                 <div className="file-date"> {getMarkdownHeader(file.content).date} </div>

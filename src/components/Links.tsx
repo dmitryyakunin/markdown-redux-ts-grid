@@ -1,11 +1,12 @@
 import React, {FC} from "react"
 import {useAppDispatch, useAppSelector} from "../app/hooks";
-import {getFile, selectPostList, PostList} from "./posts/postsSlice";
+import {getFile, selectPostList, PostList, selectCurDir} from "./posts/postsSlice";
 import "./components.css"
 
 const Links: FC<{ folderName: string, title?: string }> = ({folderName, title}) => {
-    const postList: PostList[] = useAppSelector(selectPostList);
     const dispatch = useAppDispatch();
+    const postList: PostList[] = useAppSelector(selectPostList);
+    const cur_dir = useAppSelector(selectCurDir);
 
     let curPosts = postList.find(post => post.folderName === folderName)
 
@@ -20,7 +21,7 @@ const Links: FC<{ folderName: string, title?: string }> = ({folderName, title}) 
                     curPosts.posts.map((post, i) => {
                         return (
                             <div key={i} className="links-group_content">
-                                <div onClick={() => dispatch(getFile(folderName + '/' + post.name+'?cur_dir=home'))}>
+                                <div onClick={() => dispatch(getFile(folderName + '/' + post.name+'?cur_dir='+cur_dir))}>
                                     {post.content}
                                 </div>
                             </div>
