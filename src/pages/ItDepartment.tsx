@@ -24,7 +24,7 @@ const ItDepartment: FC = () => {
     let pages: any;
     const config: string[] = useAppSelector(selectConfig);
     const titles: string[] = useAppSelector(selectTitles);
-    let cur_dir: string;
+    let cur_dir: string[];
 
     useEffect(() => {
         getPageDir();
@@ -34,20 +34,25 @@ const ItDepartment: FC = () => {
         pages = await dispatch(getPages());
         let page: string = pages.payload.content;
         let dir: string[] = page.split('\r\n');
-        cur_dir = dir[1]; //.split(':');
+        cur_dir = dir[1].split(':');
 
-        await dispatch(setCurDir(cur_dir));
-        await getCategorisFileList();
-        await dispatch(getDirTitles(cur_dir));
+        await dispatch(setCurDir(cur_dir[0]));
+        await getCategorisFileList(cur_dir[0]);
+        await dispatch(getDirTitles(cur_dir[0]));
     }
 
-    async function getCategorisFileList() {
-        let directories = await dispatch(getDirectories(cur_dir));
-        if (directories.payload) {
-            for (let i = 0; i < directories.payload.data.length; i++) {
-                dispatch(getBriefly({folderName: directories.payload.data[i], cur_dir:cur_dir}));
-
+    async function getCategorisFileList(cur_dir: string) {
+        try {
+            let directories = await dispatch(getDirectories(cur_dir));
+            if (directories.type !== 'posts/getconfigfile/rejected') {
+                for (let i = 0; i < directories.payload.data.length; i++) {
+                    dispatch(getBriefly({
+                        folderName: directories.payload.data[i], cur_dir:cur_dir
+                    }));
+                }
             }
+        } catch (e) {
+            console.log(e.message);
         }
     }
 
@@ -75,12 +80,12 @@ const ItDepartment: FC = () => {
             </div>
 
             <div className="article">
-                <div>
+                <div className="page-title">
                     <h2>Отдел информационных технологий</h2>
                 </div>
 
                 <div style={{margin: '0.5em'}}>
-                    <Post index={1}/>
+                    <Post indexStr={'1'}/>
                 </div>
             </div>
 

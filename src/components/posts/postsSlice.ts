@@ -173,8 +173,12 @@ export const postsSlice = createSlice({
             .addCase(getBriefly.fulfilled, (state, action) => {
                 state.status = 'idle';
                 if (!state.postList.find(pathName => pathName.folderName === action.payload.path)) {
-                    if (action.payload.data[0].content !== '')
-                        state.postList.push({folderName: action.payload.path, posts: action.payload.data});
+                    if (action.payload.data.length === 0) {
+                        console.log('folder '+action.payload.path+' is empty')
+                    } else {
+                        if (action.payload.data[0].content !== '')
+                            state.postList.push({folderName: action.payload.path, posts: action.payload.data});
+                    }
                 }
             });
     },

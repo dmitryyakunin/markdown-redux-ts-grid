@@ -9,9 +9,10 @@ import {FetchedPost} from '../../models/post';
 
 import './Posts.css';
 
-const Post:FC<{ index: number}> = ({index}) => {
+const Post:FC<{ indexStr: string}> = ({indexStr}) => {
     const files: FetchedPost[] = useAppSelector(selectFiles);
     const dispatch = useAppDispatch();
+    const index: number = parseInt(indexStr);
 
     useEffect(() => {
         if (files.length === 0) {
@@ -19,6 +20,9 @@ const Post:FC<{ index: number}> = ({index}) => {
         }
         if (files.length === 1) {
             dispatch(getFiles('files/it_structure.md?cur_dir='));
+        }
+        if (files.length === 2) {
+            dispatch(getFiles('files/hr_department.md?cur_dir='));
         }
         dispatch(setFile({name: '', content: ''}));
     }, [files.length, dispatch])
