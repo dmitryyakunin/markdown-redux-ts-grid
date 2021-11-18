@@ -46,12 +46,12 @@ const Home: FC<RouterProps> = (props: RouterProps) => {
         pages = await dispatch(getPages());
         let page: string = pages.payload.content;
         let dir: string[] = page.split('\r\n');
-        //let cur_dir: string[] = dir[0].split(':');
+        let page_params: string[] = dir[parseInt(params.index)].split(':');
         let cur_dir: string[] = [param_dir];
         await dispatch(setCurDir(cur_dir[0]));
         await getCategorisFileList(cur_dir[0]);
         await dispatch(getDirTitles(cur_dir[0]));
-        await setCurrentPage({directory: cur_dir[0], linkName: cur_dir[1], title: cur_dir[2]});
+        await setCurrentPage({directory: page_params[0], linkName: page_params[1], title: page_params[2]});
     }
 
     async function getCategorisFileList(cur_dir: string) {
