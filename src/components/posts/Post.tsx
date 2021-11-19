@@ -19,9 +19,12 @@ const Post:FC<{ indexStr: string}> = ({indexStr}) => {
             dispatch(getFiles('news/news1.md?cur_dir='));
         }
         if (files.length === 1) {
-            dispatch(getFiles('files/it_structure.md?cur_dir='));
+            dispatch(getFiles('files/production.md?cur_dir='));
         }
         if (files.length === 2) {
+            dispatch(getFiles('files/it_structure.md?cur_dir='));
+        }
+        if (files.length === 3) {
             dispatch(getFiles('files/hr_department.md?cur_dir='));
         }
         dispatch(setFile({name: '', content: ''}));

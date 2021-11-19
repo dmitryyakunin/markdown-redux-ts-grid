@@ -1,21 +1,20 @@
 import React, {FC, useEffect, useState} from "react"
-import Posts from "../components/posts/Posts";
-import Post from "../components/posts/Post";
-import Links from "../components/Links";
 import {
     getBriefly,
     getDirectories,
     getDirTitles, getPages,
-    selectConfig, selectCurDir, selectPages,
+    selectConfig,
     selectTitles, setCurDir
 } from "../components/posts/postsSlice";
-import {useAppDispatch, useAppSelector} from "../app/hooks";
-import {getTitle} from "../lib/getTitle";
 
 import "./page.css";
+import {useAppDispatch, useAppSelector} from "../app/hooks";
+import {IRouterProps} from "../App";
+import Posts from "../components/posts/Posts";
+import Post from "../components/posts/Post";
+import Links from "../components/Links";
 import Navbar from "../components/Navbar";
-import {useParams, withRouter} from "react-router-dom";
-import {RouterProps} from "../App";
+import {getTitle} from "../lib/getTitle";
 
 export interface CurrentPage{
     directory: string;
@@ -23,22 +22,22 @@ export interface CurrentPage{
     title: string;
 }
 
-const Home: FC<RouterProps> = (props: RouterProps) => {
-/*const Home: FC<RouterProps> = ({ match }: RouterProps) => {*/
-/*const Home: FC = () => {*/
+const Home: FC<IRouterProps> = (props: IRouterProps) => {
     const dispatch = useAppDispatch();
     let pages: any;
-    //const cur_dir: string = useAppSelector(selectCurDir);
     const config: string[] = useAppSelector(selectConfig);
     const titles: string[] = useAppSelector(selectTitles);
     const [currentPage, setCurrentPage] =
         useState<CurrentPage>({directory: '', linkName: '', title:''});
 
-    //const { params } = match;
     const params = props.match.params;
-    console.log(params.page + params.index);
+    //console.log(params.page + params.index);
 
     useEffect(() => {
+        if (!params.page) {
+            params.page = 'home';
+            params.index = '0';
+        }
         getPageDir(params.page);
     }, [params.page])
 
@@ -96,7 +95,6 @@ const Home: FC<RouterProps> = (props: RouterProps) => {
                 {(currentPage.title) &&
                   <div className="page-title">
                       {/*<h2>Новости <a href="https://irand.ru/index.php/ru/">Инструм-РЭНД</a></h2>*/}
-                      {/*<h2>{props.match.params.title}</h2>*/}
                     <h2>{currentPage.title}</h2>
                   </div>
                 }
@@ -113,5 +111,4 @@ const Home: FC<RouterProps> = (props: RouterProps) => {
     )
 }
 
-//export default withRouter(Home)
 export default Home

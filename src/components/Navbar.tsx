@@ -1,12 +1,23 @@
 import React, {FC} from "react";
 import {Link} from "react-router-dom";
+import {useAppSelector} from "../app/hooks";
+import {selectPages} from "./posts/postsSlice";
 
-const Navbar: FC = () => (
-    <div className="navbar">
-        <Link className="navbar_links" to="/home/0">Главная</Link>
-        <Link className="navbar_links" to="/it-dept/1">Отдел ИТ</Link>
-        <Link className="navbar_links" to="/hr-dept/2">Отдел кадров</Link>
-    </div>
-)
+const Navbar: FC = () => {
+    const pages: string[] = useAppSelector(selectPages);
+
+    return (
+        <div className="navbar">
+            {pages.map((page, i) => {
+                return (
+                    <Link className="navbar_links" to={"/"+page.split(':')[0]+"/"+i}>
+                        {page.split(':')[1]}
+                    </Link>
+                )
+            })
+            }
+        </div>
+    )
+}
 
 export default Navbar

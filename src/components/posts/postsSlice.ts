@@ -39,8 +39,8 @@ const initialState: CounterState = {
 
 export const getAllFiles = createAsyncThunk(
     "posts/allfiles",
-    async () => {
-        const res = await DataService.getAll();
+    async (dir_name) => {
+        const res = await DataService.getAll(dir_name);
         return res.data;
     }
 );
