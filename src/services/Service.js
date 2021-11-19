@@ -1,7 +1,7 @@
 import http from "../http-common";
 
-const getAll = () => {
-  return http.get("blog/all-files")
+const getAll = (dir_name) => {
+  return http.get(dir_name+"/all-files")
     .then(function (response) { return response; })
     .catch(function (error) { console.log(error); return {data: null}; });
 };
