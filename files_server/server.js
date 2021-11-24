@@ -133,12 +133,12 @@ http.createServer((req, res) => {
 		/*--------------- /all-files ---------------*/
 		if(req.url.includes('/all-files')) {
 				let data = [];
-				console.log(folderPath);
+				//console.log(folderPath);
 				try {
 					fs.readdir(folderPath, (err, files) => {
 						if (files) {
 							files.forEach(file => {
-								console.log('dir file' + file);
+								//console.log('dir file' + file);
 								let fileContent = fs.readFileSync(folderPath + file, 'utf8');
 								//data[file] = fileContent;
 								data.push({name: file, content: fileContent});

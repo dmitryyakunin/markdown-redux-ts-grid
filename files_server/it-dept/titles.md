@@ -1,2 +1,2 @@
-it-articles:Информация
+it-articles:Информация;
 it-security:Инф. безопасность

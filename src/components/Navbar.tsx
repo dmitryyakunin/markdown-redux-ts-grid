@@ -10,9 +10,11 @@ const Navbar: FC = () => {
         <div className="navbar">
             {pages.map((page, i) => {
                 return (
-                    <Link className="navbar_links" to={"/"+page.split(':')[0]+"/"+i}>
-                        {page.split(':')[1]}
-                    </Link>
+                    <span key={i}>
+                        <Link className="navbar_links" to={"/" + page.split(':')[0] + "/" + i}>
+                            {page.split(':')[1]}
+                        </Link>
+                    </span>
                 )
             })
             }

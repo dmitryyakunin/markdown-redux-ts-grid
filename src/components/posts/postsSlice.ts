@@ -39,7 +39,7 @@ const initialState: CounterState = {
 
 export const getAllFiles = createAsyncThunk(
     "posts/allfiles",
-    async (dir_name) => {
+    async (dir_name:string) => {
         const res = await DataService.getAll(dir_name);
         return res.data;
     }
@@ -120,7 +120,7 @@ export const postsSlice = createSlice({
             })
             .addCase(getAllFiles.fulfilled, (state, action) => {
                 state.status = 'idle';
-                state.items = action.payload.data;
+                state.files = action.payload.data;
             });
         builder
             .addCase(getFile.pending, (state) => {
@@ -137,7 +137,7 @@ export const postsSlice = createSlice({
             .addCase(getDirTitles.fulfilled, (state, action) => {
                 state.status = 'idle';
                 if (action.payload) {
-                    state.titles = action.payload.content.split('\r\n');
+                    state.titles = action.payload.content.split(';');
                 }
             });
         builder
@@ -147,7 +147,7 @@ export const postsSlice = createSlice({
             .addCase(getPages.fulfilled, (state, action) => {
                 state.status = 'idle';
                 if (action.payload) {
-                    state.pages = action.payload.content.split('\r\n');
+                    state.pages = action.payload.content.split(';');
                 }
             });
         builder

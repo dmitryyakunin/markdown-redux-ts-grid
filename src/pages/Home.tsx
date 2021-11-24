@@ -3,7 +3,7 @@ import {
     getBriefly,
     getDirectories,
     getDirTitles, getPages,
-    selectConfig,
+    selectConfig, selectFiles,
     selectTitles, setCurDir
 } from "../components/posts/postsSlice";
 
@@ -15,6 +15,7 @@ import Post from "../components/posts/Post";
 import Links from "../components/Links";
 import Navbar from "../components/Navbar";
 import {getTitle} from "../lib/getTitle";
+import {FetchedPost} from "../models/post";
 
 export interface CurrentPage{
     directory: string;
@@ -27,6 +28,8 @@ const Home: FC<IRouterProps> = (props: IRouterProps) => {
     let pages: any;
     const config: string[] = useAppSelector(selectConfig);
     const titles: string[] = useAppSelector(selectTitles);
+    const files: FetchedPost[] = useAppSelector(selectFiles);
+
     const [currentPage, setCurrentPage] =
         useState<CurrentPage>({directory: '', linkName: '', title:''});
 
@@ -44,7 +47,7 @@ const Home: FC<IRouterProps> = (props: IRouterProps) => {
     async function getPageDir(param_dir:string) {
         pages = await dispatch(getPages());
         let page: string = pages.payload.content;
-        let dir: string[] = page.split('\r\n');
+        let dir: string[] = page.split(';');
         let page_params: string[] = dir[parseInt(params.index)].split(':');
         let cur_dir: string[] = [param_dir];
         await dispatch(setCurDir(cur_dir[0]));
@@ -99,7 +102,7 @@ const Home: FC<IRouterProps> = (props: IRouterProps) => {
                   </div>
                 }
                 <div style={{margin: '0.5em'}}>
-                    <Post indexStr={params.index}/>
+                    <Post index={parseInt(params.index)} fileName={''}/>
                 </div>
             </div>
 

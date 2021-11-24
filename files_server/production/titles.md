@@ -1,2 +1,2 @@
-prod-orders:Заказы
+prod-orders:Заказы;
 prod-tools:Станки

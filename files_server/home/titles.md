@@ -1,3 +1,3 @@
-home-achievements:Достижения
-home-goals:Цели
-home-doc:Документы
+home-achievements:Достижения;
+home-goals:Цели;
+home-doc:Документы;

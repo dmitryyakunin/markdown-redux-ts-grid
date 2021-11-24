@@ -1,2 +1,2 @@
-hr-blanks:Бланки
+hr-blanks:Бланки;
 hr-doc:Документы
