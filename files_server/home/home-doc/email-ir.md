@@ -2,53 +2,42 @@
 title: Список адресов электронной почты ЗАО Инструм-РЭНД
 date: 2010-07-12
 author: Якунин ДИ
-briefly: Список email Инструм-РЭНД
+briefly: Список email
 ---
 
 | email | Фамилия И.О.|
 | :--- | :--- |
-| a_gundorov@irand.ru | |
-| a_kondratiev@irand.ru | |
-| a_pryadilov@irand.ru | |
-| a_sevryukov@irand.ru | |
-| a_silantyev@irand.ru | |
-| a_volodin@irand.ru | |
-| a_yurina@irand.ru  | |
-| admir@irand.ru | |
-| alarin@irand.ru | |
-| andrey_botenkov@irand.ru | |
-| d_morozov@irand.ru | |
-| e_bodrov@irand.ru | |
-| e_khmelinina@irand.ru | |
-| e_pyzhikova@irand.ru | |
-| egorov@irand.ru | |
-| eremin@irand.ru | |
-| g_prikazchikova@irand.ru | |
-| gordov@irand.ru | |
-| i_biryukova@irand.ru  | |
-| ivanov@irand.ru | |
-| ivi@irand.ru | |
+| a_gundorov@irand.ru | Гундоров Андрей |
+| a_pryadilov@irand.ru | Прядилов Александр |
+| a_silantyev@irand.ru | Силантьев Алексей|
+| a_volodin@irand.ru | Володин	Андрей |
+| a_yurina@irand.ru  | Юрина Анфиса |
+| admir@irand.ru | Земскова Галина |
+| alarin@irand.ru | Ларин Александр |
+| andrey_botenkov@irand.ru | Ботенков Андрей |
+| e_bodrov@irand.ru | Бодров	Евгений |
+| e_khmelinina@irand.ru | Хмелинина	Елена |
+| e_pyzhikova@irand.ru | Пыжикова Елена |
+| egorov@irand.ru | Егоров	Сергей |
+| eremin@irand.ru | Еремин Дмитрий|
+| g_prikazchikova@irand.ru | Приказчикова Галина |
+| ivanov@irand.ru | Иванов	Дмитрий |
+| ivi@irand.ru | Илларионов Владимир |
 | logyst@irand.ru | |
-| m_vernikovskiy@irand.ru | |
-| militskiy@irand.ru | |
-| muzhikov@irand.ru | |
-| n_perevezentsev@irand.ru | |
-| nikotin@irand.ru | |
-| o_krasnova@irand.ru | |
-| o_shutova@irand.ru | |
-| olesya@irand.ru | |
-| pyatugin@irand.ru | |
-| pyshnenko@irand.ru | |
-| r_nikitin@irand.ru | |
-| s_ulyianov@irand.ru | |
-| s_zharov@irand.ru | |
-| shukinvladimir@irand.ru | |
-| sokov@irand.ru | |
-| t_ryazanova@irand.ru | |
-| ukhalkin@irand.ru | |
-| ustinov@irand.ru | |
-| v_gundorov@irand.ru | |
-| v_sporyshev@irand.ru | |
-| valeri_sorokin@irand.ru | |
-| yakunin_dmitry@irand.ru | |
-| s_terehin@irand.ru | |
+| m_vernikovskiy@irand.ru | Верниковский	Максим |
+| militskiy@irand.ru | Милицкий	Александр |
+| muzhikov@irand.ru | Мужиков	Валентин |
+| nikotin@irand.ru | Никотин	Валерий |
+| o_krasnova@irand.ru | Краснова	Ольга |
+| o_shutova@irand.ru | Шутова Ольга |
+| olesya@irand.ru | Воробьева Олеся |
+| pyatugin@irand.ru | Пятугин Вячеслав |
+| r_nikitin@irand.ru | Никитин Роман |
+| s_ulyianov@irand.ru | Ульянов Сергей |
+| s_zharov@irand.ru | Жаров	Сергей |
+| shukinvladimir@irand.ru | Щукин Владимир |
+| t_ryazanova@irand.ru | Рязанова Татьяна|
+| ustinov@irand.ru | Устинов	Виталий |
+| v_gundorov@irand.ru | Гундоров Вадим |
+| v_sporyshev@irand.ru | Спорышев	Валерий |
+| yakunin_dmitry@irand.ru | Якунин	Дмитрий |

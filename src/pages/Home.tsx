@@ -1,10 +1,10 @@
-import React, {FC, useEffect, useState} from "react"
+import React, {FC, useEffect, useRef, useState} from "react"
 import {
     getBriefly,
     getDirectories,
-    getDirTitles, getPages,
-    selectConfig, selectFiles,
-    selectTitles, setCurDir
+    getDirTitles, getPages, PostList,
+    selectConfig, selectFile, selectFiles, selectPostList,
+    selectTitles, setCurDir, setFile
 } from "../components/posts/postsSlice";
 
 import "./page.css";
@@ -28,15 +28,19 @@ const Home: FC<IRouterProps> = (props: IRouterProps) => {
     let pages: any;
     const config: string[] = useAppSelector(selectConfig);
     const titles: string[] = useAppSelector(selectTitles);
-    const files: FetchedPost[] = useAppSelector(selectFiles);
+    const file: FetchedPost = useAppSelector(selectFile);
+    const postList: PostList[] = useAppSelector(selectPostList);
 
-    const [currentPage, setCurrentPage] =
-        useState<CurrentPage>({directory: '', linkName: '', title:''});
+    const [currentPage, setCurrentPage] = useState<CurrentPage>({directory: '', linkName: '', title:''});
 
     const params = props.match.params;
     //console.log(params.page + params.index);
 
     useEffect(() => {
+        if (file.name !== '') {
+            dispatch(setFile({name: '', content: ''}));
+        }
+
         if (!params.page) {
             params.page = 'home';
             params.index = '0';
@@ -71,8 +75,20 @@ const Home: FC<IRouterProps> = (props: IRouterProps) => {
         }
     }
 
+    function getLeftMenuItems() {
+        let count: number = 0;
+        config.forEach(value => {
+            let postItems = postList.filter(item => item.folderName === value);
+            if(postItems.length > 0) {
+                count += postItems[0].posts.length;
+            }
+        });
+        return file.name === '' ? 'auto' : (config.length*48 + count*34 + 46 - 80)  + 'px';
+    }
+
+
     return (
-        <div  className="main" >
+        <div  className="main">
             <div className="header">
                 <Navbar/>
             </div>
@@ -97,11 +113,10 @@ const Home: FC<IRouterProps> = (props: IRouterProps) => {
             <div className="article">
                 {(currentPage.title) &&
                   <div className="page-title">
-                      {/*<h2>Новости <a href="https://irand.ru/index.php/ru/">Инструм-РЭНД</a></h2>*/}
                     <h2>{currentPage.title}</h2>
                   </div>
                 }
-                <div style={{margin: '0.5em'}}>
+                <div style={{margin: '0.5em', height: getLeftMenuItems(), overflowY:'scroll'}}>
                     <Post index={parseInt(params.index)} fileName={''}/>
                 </div>
             </div>

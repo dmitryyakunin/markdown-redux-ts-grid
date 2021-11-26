@@ -18,6 +18,9 @@ const Navbar: FC = () => {
                 )
             })
             }
+            <div style={{float: 'right', paddingRight:'30px'}}>
+                <img src="/irand_logo.png" alt="irand" width="100px"/>
+            </div>
         </div>
     )
 }

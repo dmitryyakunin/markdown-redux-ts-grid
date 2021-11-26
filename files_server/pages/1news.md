@@ -27,14 +27,3 @@
 ## [Подбор Запчастей и комплектующих Ingersoll Rand](https://irand.ru/index.php/ru/o-kompanii/novosti-kompanii/277-podbor-zapchastej-i-komplektuyushchikh-ingersoll-rand)
 
 04 августа 2021
-
-[<img src="https://irand.ru/cache/mod_news_show_sp2/nssp2_thumbs/1/news_0804_100x100.jpg" title="Подбор Запчастей и комплектующих Ingersoll Rand" class="ns2-image" style="float:left;margin:13px 10px 1px 0px" alt="Подбор Запчастей и комплектующих Ingersoll Rand" />](https://irand.ru/index.php/ru/o-kompanii/novosti-kompanii/277-podbor-zapchastej-i-komplektuyushchikh-ingersoll-rand)
-
-Уважаемые партнеры! Сообщаем вам, на сайте компании ЗАО ИНСТРУ-РЭНД
-появился новый раздел – Подбор запчастей и комплектующих Ingersoll Rand
-(Ингерсолл Рэнд ). В разделе можно подобрать и заказать оригинальные
-запчасти...
-
-<a href="https://irand.ru/index.php/ru/o-kompanii/novosti-kompanii/277-podbor-zapchastej-i-komplektuyushchikh-ingersoll-rand" class="ns2-readmore"><span>Читать дальше...</span></a>
-<br />
-<br />
